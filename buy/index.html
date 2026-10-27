@@ -1,0 +1,22 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta name="robots" content="noindex" />
+    <title>SetCue — Buy a licence</title>
+    <!-- getsetcue.com/buy forwards to the Gumroad store, adding the Trybe visitor ID (if this browser has one) so the
+         sale is credited to whoever sent the buyer. The desktop app's buy link can point here. -->
+    <script>
+      (function () {
+        var store = 'https://steampunkarena.gumroad.com/l/setcue';
+        var match = document.cookie.match(/(?:^|;\s*)ugc_vid_c5361406-beec-4ca4-975c-4ecf95621877=([^;]+)/);
+        location.replace(match ? store + '?trybe_vid=' + encodeURIComponent(decodeURIComponent(match[1])) : store);
+      })();
+    </script>
+    <style>body{margin:0;min-height:100vh;display:grid;place-items:center;background:#07060c;color:#eceef5;font:16px system-ui,sans-serif}a{color:#e3c77c}</style>
+  </head>
+  <body>
+    <p>Opening the SetCue store… <a href="https://steampunkarena.gumroad.com/l/setcue">Continue to Gumroad</a></p>
+  </body>
+</html>
