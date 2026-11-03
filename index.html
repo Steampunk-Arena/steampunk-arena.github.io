@@ -19,8 +19,12 @@
     <meta name="twitter:card" content="summary_large_image" />
     <link rel="icon" href="/assets/setcue.svg" type="image/svg+xml" />
     <link rel="preload" href="/media/app-blend.jpg" as="image" />
-    <!-- Trybe Attribution Pixel (Custom Domain) -->
+    <!-- Ad tracking (Trybe referral pixel, Reddit Pixel) loads only after the visitor allows cookies in the banner
+         (src/components/CookieBanner.jsx). The choice is kept in localStorage 'setcue-cookies' ('yes' / 'no'). -->
     <script>
+    window.setcueLoadAds = function () {
+    if (window.setcueAdsLoaded) return; window.setcueAdsLoaded = true;
+    // Trybe Attribution Pixel (Custom Domain)
     (function(w,d,p,s,u,pl,at) {
       w._trybe = w._trybe || { pixelCode: p, storeId: s, platform: pl, autoTracking: at, customDomain: "track.getsetcue.com", serviceUrl: "https://prod-trybe-platform-6mi3j.ondigitalocean.app/attribution" };
       var script = d.createElement('script');
@@ -32,10 +36,13 @@
       script.setAttribute('data-auto-tracking', at);
       d.head.appendChild(script);
     })(window, document, "px_f8207866fe14", "c5361406-beec-4ca4-975c-4ecf95621877", "https://track.getsetcue.com", "CUSTOM", "false");
+    // Reddit Pixel
+    !function(w,d){if(!w.rdt){var p=w.rdt=function(){p.sendEvent?p.sendEvent.apply(p,arguments):p.callQueue.push(arguments)};p.callQueue=[];var t=d.createElement("script");t.src="https://www.redditstatic.com/ads/pixel.js?pixel_id=a2_jyk5hmtuzebx",t.async=!0;var s=d.getElementsByTagName("script")[0];s.parentNode.insertBefore(t,s)}}(window,document);rdt('init','a2_jyk5hmtuzebx');rdt('track', 'PageVisit');
+    };
+    try { if (localStorage.getItem('setcue-cookies') === 'yes') window.setcueLoadAds(); } catch (e) {}
     </script>
-    <!-- End Trybe Attribution Pixel -->
-    <script type="module" crossorigin src="/assets/index-By6JKRuq.js"></script>
-    <link rel="stylesheet" crossorigin href="/assets/index-kGh3x6zF.css">
+    <script type="module" crossorigin src="/assets/index-CObfjcPI.js"></script>
+    <link rel="stylesheet" crossorigin href="/assets/index-BO99-g7d.css">
   </head>
   <body>
     <div id="root"></div>
