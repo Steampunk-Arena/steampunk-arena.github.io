@@ -19,7 +19,7 @@
     <meta name="twitter:card" content="summary_large_image" />
     <link rel="icon" href="/assets/setcue.svg" type="image/svg+xml" />
     <link rel="preload" href="/media/app-blend.jpg" as="image" />
-    <!-- Ad tracking (Trybe referral pixel, Reddit Pixel) loads only after the visitor allows cookies in the banner
+    <!-- Ad tracking (Trybe referral pixel, Reddit Pixel, Meta Pixel) loads only after the visitor allows cookies in the banner
          (src/components/CookieBanner.jsx). The choice is kept in localStorage 'setcue-cookies' ('yes' / 'no'). -->
     <script>
     window.setcueLoadAds = function () {
@@ -38,10 +38,12 @@
     })(window, document, "px_f8207866fe14", "c5361406-beec-4ca4-975c-4ecf95621877", "https://track.getsetcue.com", "CUSTOM", "false");
     // Reddit Pixel
     !function(w,d){if(!w.rdt){var p=w.rdt=function(){p.sendEvent?p.sendEvent.apply(p,arguments):p.callQueue.push(arguments)};p.callQueue=[];var t=d.createElement("script");t.src="https://www.redditstatic.com/ads/pixel.js?pixel_id=a2_jyk5hmtuzebx",t.async=!0;var s=d.getElementsByTagName("script")[0];s.parentNode.insertBefore(t,s)}}(window,document);rdt('init','a2_jyk5hmtuzebx');rdt('track', 'PageVisit');
+    // Meta Pixel
+    !function(f,b,e,v,n,t,s){if(f.fbq)return;n=f.fbq=function(){n.callMethod?n.callMethod.apply(n,arguments):n.queue.push(arguments)};if(!f._fbq)f._fbq=n;n.push=n;n.loaded=!0;n.version='2.0';n.queue=[];t=b.createElement(e);t.async=!0;t.src=v;s=b.getElementsByTagName(e)[0];s.parentNode.insertBefore(t,s)}(window,document,'script','https://connect.facebook.net/en_US/fbevents.js');fbq('init','1766242254508946');fbq('track','PageView');
     };
     try { if (localStorage.getItem('setcue-cookies') === 'yes') window.setcueLoadAds(); } catch (e) {}
     </script>
-    <script type="module" crossorigin src="/assets/index-Cab29UMq.js"></script>
+    <script type="module" crossorigin src="/assets/index-DTZwWKYu.js"></script>
     <link rel="stylesheet" crossorigin href="/assets/index-BO99-g7d.css">
   </head>
   <body>
