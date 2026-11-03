@@ -10,8 +10,12 @@
     <script>
       (function () {
         var store = 'https://steampunkarena.gumroad.com/l/setcue';
-        var match = document.cookie.match(/(?:^|;\s*)ugc_vid_c5361406-beec-4ca4-975c-4ecf95621877=([^;]+)/);
-        location.replace(match ? store + '?trybe_vid=' + encodeURIComponent(decodeURIComponent(match[1])) : store);
+        // Trybe visitor ID, plus Reddit's IDs when this browser allowed ad cookies on getsetcue.com.
+        var cookie = function (name) { var m = document.cookie.match(new RegExp('(?:^|;\\s*)' + name + '=([^;]+)')); return m ? decodeURIComponent(m[1]) : ''; };
+        var params = { trybe_vid: cookie('ugc_vid_c5361406-beec-4ca4-975c-4ecf95621877') };
+        try { if (localStorage.getItem('setcue-cookies') === 'yes') { params.rdt_cid = localStorage.getItem('setcue-rdt-cid') || cookie('_rdt_cid'); params.rdt_uuid = cookie('_rdt_uuid'); } } catch (e) {}
+        var query = Object.keys(params).filter(function (k) { return params[k]; }).map(function (k) { return k + '=' + encodeURIComponent(params[k]); }).join('&');
+        location.replace(query ? store + '?' + query : store);
       })();
     </script>
     <style>body{margin:0;min-height:100vh;display:grid;place-items:center;background:#07060c;color:#eceef5;font:16px system-ui,sans-serif}a{color:#e3c77c}</style>
